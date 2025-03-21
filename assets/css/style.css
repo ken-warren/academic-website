@@ -1,1 +1,74 @@
+/* High-Contrast Dark Mode Palette */
+:root {
+    --code-font-size: 1.6rem;
+    --highlight-background: #0D1117;
+    --highlight-current-line: #161B22;
+    --highlight-selection: rgba(0, 150, 255, 0.5);
+    --highlight-foreground: #FFFFFF;
+    --highlight-comment: rgba(200, 200, 200, 0.6);
+    --highlight-red: #FF5555;
+    --highlight-orange: #FFA500;
+    --highlight-yellow: #FFFF66;
+    --highlight-green: #50FA7B;
+    --highlight-aqua: #00FFFF;
+    --highlight-blue: #66CCFF;
+    --highlight-purple: #C678DD;
+    --highlight-gutter-color: #BBBBBB;
+    --highlight-gutter-bg: #0A0E14;
+    --highlight-deletion: #FF4444;
+    --highlight-addition: #44FF44;
+}
+
+/* Code Block Styling */
+pre {
+    overflow: auto;
+    margin: 0 0 1rem;
+    padding: 12px 20px;
+    background: var(--highlight-background);
+    color: var(--highlight-foreground);
+    font-size: var(--code-font-size);
+    font-family: 'Fira Code', monospace;
+    border-radius: 5px;
+}
+
+/* Selection & Gutter Improvements */
+::selection {
+    background: var(--highlight-selection);
+    color: #FFFFFF;
+}
+
+/* Syntax Highlighting */
+pre .comment {
+    color: var(--highlight-comment);
+    font-style: italic;
+}
+pre .keyword, pre .title {
+    color: var(--highlight-aqua);
+    font-weight: bold;
+}
+pre .function {
+    color: var(--highlight-blue);
+    font-weight: bold;
+}
+pre .string {
+    color: var(--highlight-green);
+}
+pre .number {
+    color: var(--highlight-orange);
+}
+pre .deletion {
+    background: var(--highlight-deletion);
+}
+pre .addition {
+    background: var(--highlight-addition);
+}
+
+/* Gutter Styling */
+.gutter {
+    user-select: none;
+    background: var(--highlight-gutter-bg);
+    color: var(--highlight-gutter-color);
+    padding: 10px;
+    text-align: right;
+}
 
