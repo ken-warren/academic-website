@@ -1,74 +1,67 @@
-/* High-Contrast Dark Mode Palette */
-:root {
-    --code-font-size: 1.6rem;
-    --highlight-background: #0D1117;
-    --highlight-current-line: #161B22;
-    --highlight-selection: rgba(0, 150, 255, 0.5);
-    --highlight-foreground: #FFFFFF;
-    --highlight-comment: rgba(200, 200, 200, 0.6);
-    --highlight-red: #FF5555;
-    --highlight-orange: #FFA500;
-    --highlight-yellow: #FFFF66;
-    --highlight-green: #50FA7B;
-    --highlight-aqua: #00FFFF;
-    --highlight-blue: #66CCFF;
-    --highlight-purple: #C678DD;
-    --highlight-gutter-color: #BBBBBB;
-    --highlight-gutter-bg: #0A0E14;
-    --highlight-deletion: #FF4444;
-    --highlight-addition: #44FF44;
-}
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Source+Code+Pro')
 
-/* Code Block Styling */
-pre {
-    overflow: auto;
-    margin: 0 0 1rem;
-    padding: 12px 20px;
-    background: var(--highlight-background);
-    color: var(--highlight-foreground);
-    font-size: var(--code-font-size);
-    font-family: 'Fira Code', monospace;
-    border-radius: 5px;
-}
+body
+  font-family 'Open Sans', sans-serif
+  background-color #f5f5f5
+  color #333
+  margin 0
+  padding 0
 
-/* Selection & Gutter Improvements */
-::selection {
-    background: var(--highlight-selection);
-    color: #FFFFFF;
-}
+.container
+  max-width 800px
+  margin 0 auto
+  padding 20px
+  background-color #fff
+  box-shadow 0px 0px 10px rgba(0, 0, 0, 0.1)
+  border-radius 5px
 
-/* Syntax Highlighting */
-pre .comment {
-    color: var(--highlight-comment);
-    font-style: italic;
-}
-pre .keyword, pre .title {
-    color: var(--highlight-aqua);
-    font-weight: bold;
-}
-pre .function {
-    color: var(--highlight-blue);
-    font-weight: bold;
-}
-pre .string {
-    color: var(--highlight-green);
-}
-pre .number {
-    color: var(--highlight-orange);
-}
-pre .deletion {
-    background: var(--highlight-deletion);
-}
-pre .addition {
-    background: var(--highlight-addition);
-}
+h1, h2, h3
+  font-weight bold
+  color #222
 
-/* Gutter Styling */
-.gutter {
-    user-select: none;
-    background: var(--highlight-gutter-bg);
-    color: var(--highlight-gutter-color);
-    padding: 10px;
-    text-align: right;
-}
+a
+  color #007bff
+  text-decoration none
 
+a:hover
+  text-decoration underline
+
+/* =============================
+   Syntax Highlighting (from highlight.styl)
+   ============================= */
+pre
+  background #272822
+  color #f8f8f2
+  padding 10px
+  border-radius 5px
+  overflow-x auto
+  font-family 'Source Code Pro', monospace
+
+code
+  font-family 'Source Code Pro', monospace
+  background #272822
+  color #f8f8f2
+  padding 2px 5px
+  border-radius 3px
+
+.comment
+  color #75715e
+
+.keyword
+  color #f92672
+  font-weight bold
+
+.string
+  color #a6e22e
+
+.number
+  color #ae81ff
+
+.function
+  color #66d9ef
+
+.variable
+  color #f8f8f2
+
+.operator
+  color #fd971f
