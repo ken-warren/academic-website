@@ -3,28 +3,30 @@
 /* Define CSS Variables for Theming */
 :root {
     /* Light Mode Variables */
-    --background-color: #ffffff;       /* Pure white for a clean, paper-like background */
-    --text-color: #2d2d2d;            /* Dark gray-black for readable text */
-    --link-color: #005670;            /* Muted teal-blue for links, academic tone */
-    --link-hover-color: #003d52;      /* Darker teal-blue on hover */
-    --heading-color: #004d66;         /* Slightly darker teal for headings */
-    --sidebar-text-color: #5a5a5a;    /* Medium gray for secondary text */
-    --nav-bg-color: #fafafa;          /* Off-white for nav, subtle distinction */
-    --nav-border-color: #e0e0e0;      /* Light gray for borders */
-    --social-hover-bg: #f0f0f0;       /* Very light gray for hover effects */
+    --background-color: #ffffff;
+    --text-color: #2d2d2d;
+    --link-color: #005670;
+    --link-hover-color: #003d52;
+    --heading-color: #004d66;
+    --sidebar-text-color: #5a5a5a;
+    --nav-bg-color: #fafafa;
+    --nav-border-color: #e0e0e0;
+    --social-hover-bg: #f0f0f0;
+    --image-container-bg: #f5f5f5; /* Light gray background for image containers */
 }
 
 /* Dark Mode Variables */
 [data-theme="dark"] {
-    --background-color: #1e2525;      /* Dark gray-green, not pure black, for depth */
-    --text-color: #d9d9d9;            /* Off-white for readable text */
-    --link-color: #73a8b7;            /* Soft blue-gray for links */
-    --link-hover-color: #96c2cf;      /* Lighter blue-gray on hover */
-    --heading-color: #5e8e9b;         /* Muted teal for headings */
-    --sidebar-text-color: #a0a0a0;    /* Light gray for secondary text */
-    --nav-bg-color: #2a3232;          /* Darker gray for nav */
-    --nav-border-color: #4a5555;      /* Medium gray for borders */
-    --social-hover-bg: #3a4444;       /* Slightly lighter gray for hover effects */
+    --background-color: #1e2525;
+    --text-color: #d9d9d9;
+    --link-color: #73a8b7;
+    --link-hover-color: #96c2cf;
+    --heading-color: #5e8e9b;
+    --sidebar-text-color: #a0a0a0;
+    --nav-bg-color: #2a3232;
+    --nav-border-color: #4a5555;
+    --social-hover-bg: #3a4444;
+    --image-container-bg: #2e3636; /* Darker gray for dark mode */
 }
 
 /* General Styles */
@@ -98,24 +100,24 @@ body {
 .social-links {
     margin-top: 15px;
     display: flex;
-    flex-direction: column; /* Stack items vertically */
-    gap: 8px; /* Reduced gap for tighter spacing */
+    flex-direction: column;
+    gap: 8px;
 }
 
 .social-links a {
     display: flex;
-    align-items: center; /* Align icon and text vertically */
+    align-items: center;
     color: var(--sidebar-text-color);
-    font-size: 1em; /* Adjusted for readability with text */
+    font-size: 1em;
     text-decoration: none;
     transition: all 0.3s ease;
     padding: 5px;
-    border-radius: 4px; /* Slightly softer corners */
+    border-radius: 4px;
 }
 
 .social-links a i {
-    margin-right: 8px; /* Space between icon and text */
-    font-size: 1.2em; /* Slightly larger icon */
+    margin-right: 8px;
+    font-size: 1.2em;
 }
 
 .social-links a:hover {
@@ -128,6 +130,10 @@ body {
     width: 75%;
     overflow-y: auto;
     padding-bottom: 20px;
+}
+
+.main-content section {
+    margin-bottom: 40px;
 }
 
 .main-content h1 {
@@ -156,6 +162,46 @@ body {
 .main-content a:hover {
     text-decoration: underline;
     color: var(--link-hover-color);
+}
+
+.main-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.main-content ul li {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px; /* Space between image and text */
+}
+
+.main-content ul li p {
+    margin: 0;
+}
+
+.main-content ul li strong {
+    color: var(--text-color);
+}
+
+/* Image Container Styles */
+.image-container {
+    background-color: var(--image-container-bg);
+    padding: 10px;
+    border-radius: 8px;
+    flex-shrink: 0; /* Prevent shrinking */
+    width: 150px; /* Fixed width for consistency */
+    height: 150px; /* Fixed height for consistency */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-container img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover; /* Ensure images fit within container */
+    border-radius: 4px;
 }
 
 /* Navigation Bar Styles */
@@ -232,7 +278,7 @@ body {
 
 /* Search Styles */
 .search-container {
-    flex: 0 0 auto; /* Fixed width for centering */
+    flex: 0 0 auto;
     position: relative;
     text-align: center;
 }
@@ -254,15 +300,15 @@ body {
 .search-bar {
     display: none;
     position: absolute;
-    top: 0%;
-    left: auto;
+    top: 100%;
+    left: 50%;
     transform: translateX(-50%);
     background-color: var(--nav-bg-color);
     border: 1px solid var(--nav-border-color);
     border-radius: 15px;
     padding: 5px;
     z-index: 1001;
-    width: 150px;
+    width: 200px;
 }
 
 .search-bar.show {
@@ -314,12 +360,20 @@ body {
     display: none;
 }
 
+.light-icon {
+    display: none;
+}
+
+.dark-icon {
+    display: inline-block;
+}
+
 [data-theme="dark"] .light-icon {
     display: inline-block;
 }
 
 [data-theme="dark"] .dark-icon {
-    display: inline-block;
+    display: none;
 }
 
 /* Responsive Design */
@@ -337,6 +391,14 @@ body {
     }
     .main-content {
         overflow-y: visible;
+    }
+    .main-content ul li {
+        flex-direction: column; /* Stack image and text on small screens */
+        gap: 10px;
+    }
+    .image-container {
+        width: 100%; /* Full width on small screens */
+        height: 200px; /* Adjusted height for better fit */
     }
 
     .nav {
@@ -375,11 +437,11 @@ body {
     .search-container {
         order: 1;
         margin-left: 10px;
-        flex: 0 0 auto; /* Reset for small screens */
+        flex: 0 0 auto;
     }
     .search-bar {
         width: 150px;
         left: 50%;
-        transform: none; /* Reset centering for small screens */
+        transform: translateX(-50%);
     }
 }

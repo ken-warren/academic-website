@@ -61,5 +61,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
     searchBar.classList.remove("show");
+    searchBar.querySelector("input").value = "";
   });
 });
