@@ -174,7 +174,8 @@ body {
 
 /* Logo Styles */
 .logo {
-    margin-left: 0;
+    flex: 1;
+    left: 0;
 }
 
 .logo a {
@@ -229,6 +230,67 @@ body {
     transform: scale(0.95);
 }
 
+/* Search Styles */
+.search-container {
+    flex: 0 0 auto; /* Fixed width for centering */
+    position: relative;
+    text-align: center;
+}
+
+.search-toggle {
+    background: none;
+    border: none;
+    font-size: 1.2em;
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 5px;
+    transition: transform 0.3s ease;
+}
+
+.search-toggle:hover {
+    transform: scale(1.1);
+}
+
+.search-bar {
+    display: none;
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--nav-bg-color);
+    border: 1px solid var(--nav-border-color);
+    border-radius: 15px;
+    padding: 5px;
+    z-index: 1001;
+    width: 150px;
+}
+
+.search-bar.show {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar input {
+    border: none;
+    background: none;
+    color: var(--text-color);
+    padding: 5px;
+    flex-grow: 1;
+    outline: none;
+}
+
+.search-bar button {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 5px;
+}
+
+.search-bar button:hover {
+    color: var(--link-hover-color);
+}
+
 /* Theme Toggle Styles */
 .theme-toggle {
     margin-right: 0;
@@ -252,20 +314,12 @@ body {
     display: none;
 }
 
-.light-icon {
-    display: none;
-}
-
-.dark-icon {
-    display: inline-block;
-}
-
 [data-theme="dark"] .light-icon {
     display: inline-block;
 }
 
 [data-theme="dark"] .dark-icon {
-    display: none;
+    display: inline-block;
 }
 
 /* Responsive Design */
@@ -317,5 +371,15 @@ body {
     .theme-toggle {
         order: 3;
         margin-left: 10px;
+    }
+    .search-container {
+        order: 1;
+        margin-left: 10px;
+        flex: 0 0 auto; /* Reset for small screens */
+    }
+    .search-bar {
+        width: 150px;
+        left: 50%;
+        transform: none; /* Reset centering for small screens */
     }
 }
