@@ -1,96 +1,320 @@
-document.addEventListener("DOMContentLoaded", function () {
-    // Responsive resize handling
-    function resizePage() {
-        const page = document.querySelector(".page");
-        const sideCard = document.querySelector(".side-card");
-        if (!page || !sideCard) return;
-        
-        if (window.innerWidth < 1280 && window.innerWidth > 540) {
-            page.style.width = `${window.innerWidth - sideCard.clientWidth - 90}px`;
-            page.style.float = "left";
-        } else {
-            page.removeAttribute("style");
-        }
+/* Define CSS Variables for Theming */
+/* Define CSS Variables for Theming */
+:root {
+    /* Light Mode Variables */
+    --background-color: #ffffff;       /* Pure white for a clean, paper-like background */
+    --text-color: #2d2d2d;            /* Dark gray-black for readable text */
+    --link-color: #005670;            /* Muted teal-blue for links, academic tone */
+    --link-hover-color: #003d52;      /* Darker teal-blue on hover */
+    --heading-color: #004d66;         /* Slightly darker teal for headings */
+    --sidebar-text-color: #5a5a5a;    /* Medium gray for secondary text */
+    --nav-bg-color: #fafafa;          /* Off-white for nav, subtle distinction */
+    --nav-border-color: #e0e0e0;      /* Light gray for borders */
+    --social-hover-bg: #f0f0f0;       /* Very light gray for hover effects */
+}
+
+/* Dark Mode Variables */
+[data-theme="dark"] {
+    --background-color: #1e2525;      /* Dark gray-green, not pure black, for depth */
+    --text-color: #d9d9d9;            /* Off-white for readable text */
+    --link-color: #73a8b7;            /* Soft blue-gray for links */
+    --link-hover-color: #96c2cf;      /* Lighter blue-gray on hover */
+    --heading-color: #5e8e9b;         /* Muted teal for headings */
+    --sidebar-text-color: #a0a0a0;    /* Light gray for secondary text */
+    --nav-bg-color: #2a3232;          /* Darker gray for nav */
+    --nav-border-color: #4a5555;      /* Medium gray for borders */
+    --social-hover-bg: #3a4444;       /* Slightly lighter gray for hover effects */
+}
+
+/* General Styles */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* Container for Sidebar and Main Content */
+.container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-wrap: nowrap;
+    min-height: calc(100vh - 80px);
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 25%;
+    padding-right: 20px;
+    position: sticky;
+    top: 20px;
+    align-self: flex-start;
+    height: fit-content;
+}
+
+.profile-pic {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 10px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.sidebar h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.sidebar p {
+    font-size: 0.9em;
+    color: var(--sidebar-text-color);
+}
+
+.sidebar a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+.sidebar a:hover {
+    text-decoration: underline;
+    color: var(--link-hover-color);
+}
+
+/* Social Links Styles */
+.social-links {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    gap: 8px; /* Reduced gap for tighter spacing */
+}
+
+.social-links a {
+    display: flex;
+    align-items: center; /* Align icon and text vertically */
+    color: var(--sidebar-text-color);
+    font-size: 1em; /* Adjusted for readability with text */
+    text-decoration: none;
+    transition: all 0.3s ease;
+    padding: 5px;
+    border-radius: 4px; /* Slightly softer corners */
+}
+
+.social-links a i {
+    margin-right: 8px; /* Space between icon and text */
+    font-size: 1.2em; /* Slightly larger icon */
+}
+
+.social-links a:hover {
+    color: var(--heading-color);
+    background-color: var(--social-hover-bg);
+}
+
+/* Main Content Styles */
+.main-content {
+    width: 75%;
+    overflow-y: auto;
+    padding-bottom: 20px;
+}
+
+.main-content h1 {
+    color: var(--heading-color);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.main-content h2 {
+    font-size: 1.4em;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.main-content p {
+    font-size: 1em;
+    margin-bottom: 15px;
+}
+
+.main-content a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+.main-content a:hover {
+    text-decoration: underline;
+    color: var(--link-hover-color);
+}
+
+/* Navigation Bar Styles */
+.nav {
+    background-color: var(--nav-bg-color);
+    border-bottom: 1px solid var(--nav-border-color);
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Logo Styles */
+.logo {
+    margin-left: 0;
+}
+
+.logo a {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--heading-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.logo a:hover {
+    color: var(--link-color);
+}
+
+/* Navigation Menu */
+.nav-menu {
+    display: flex;
+    justify-content: flex-end;
+    flex-grow: 1;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-menu li {
+    margin: 0 15px;
+}
+
+.nav-menu li a {
+    text-decoration: none;
+    color: var(--link-color);
+    font-weight: 500;
+}
+
+.nav-menu li a:hover {
+    text-decoration: underline;
+    color: var(--link-hover-color);
+}
+
+/* Hamburger Button */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 5px;
+}
+
+.nav-toggle:active {
+    transform: scale(0.95);
+}
+
+/* Theme Toggle Styles */
+.theme-toggle {
+    margin-right: 0;
+}
+
+#theme-toggle-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    font-size: 1.2em;
+    color: var(--text-color);
+    transition: transform 0.3s ease;
+}
+
+#theme-toggle-btn:hover {
+    transform: scale(1.1);
+}
+
+.theme-icon {
+    display: none;
+}
+
+.light-icon {
+    display: none;
+}
+
+.dark-icon {
+    display: inline-block;
+}
+
+[data-theme="dark"] .light-icon {
+    display: inline-block;
+}
+
+[data-theme="dark"] .dark-icon {
+    display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
     }
-    window.addEventListener("resize", resizePage);
-    resizePage();
-
-    // Menu toggle
-    const menuIcon = document.querySelector(".menus_icon");
-    const headerWrap = document.querySelector(".header_wrap");
-    if (menuIcon && headerWrap) {
-        menuIcon.addEventListener("click", function () {
-            headerWrap.classList.toggle("menus-open");
-            headerWrap.classList.toggle("menus-close");
-        });
+    .sidebar, .main-content {
+        width: 100%;
+    }
+    .sidebar {
+        position: static;
+        padding-right: 0;
+        margin-bottom: 20px;
+    }
+    .main-content {
+        overflow-y: visible;
     }
 
-    // Social links toggle
-    const socialLinksButton = document.querySelector(".m-social-links");
-    const authorLinks = document.querySelector(".author-links");
-    if (socialLinksButton && authorLinks) {
-        socialLinksButton.addEventListener("click", function () {
-            authorLinks.classList.toggle("is-open");
-            authorLinks.classList.toggle("is-close");
-        });
+    .nav {
+        flex-wrap: wrap;
+        padding: 10px;
     }
-
-    // Mobile navigation toggle
-    const navButton = document.querySelector(".site-nav");
-    const nav = document.querySelector(".nav");
-    if (navButton && nav) {
-        navButton.addEventListener("click", function () {
-            nav.classList.toggle("nav-open");
-            nav.classList.toggle("nav-close");
-        });
+    .logo {
+        flex: 1;
     }
-
-    // Close menus when clicking outside
-    document.addEventListener("click", function (event) {
-        if (nav && !event.target.closest(".nav")) {
-            nav.classList.remove("nav-open");
-            nav.classList.add("nav-close");
-        }
-        if (authorLinks && !event.target.closest(".author-links")) {
-            authorLinks.classList.remove("is-open");
-            authorLinks.classList.add("is-close");
-        }
-        if (headerWrap && !event.target.closest(".menus_icon") && !event.target.closest(".menus_items")) {
-            headerWrap.classList.remove("menus-open");
-            headerWrap.classList.add("menus-close");
-        }
-    });
-
-    // Show/hide back-to-top button
-    const backToTop = document.querySelector(".nav-wrap");
-    if (backToTop) {
-        window.addEventListener("scroll", function () {
-            if (window.scrollY > 100) {
-                backToTop.classList.add("is-visible");
-            } else {
-                backToTop.classList.remove("is-visible");
-            }
-        });
+    .nav-toggle {
+        display: block;
+        order: 2;
     }
-
-    // Scroll to top smoothly
-    const topButton = document.querySelector(".cd-top");
-    if (topButton) {
-        topButton.addEventListener("click", function (event) {
-            event.preventDefault();
-            window.scrollTo({ top: 0, behavior: "smooth" });
-        });
+    .nav-menu {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        background-color: var(--nav-bg-color);
+        border-top: 1px solid var(--nav-border-color);
+        padding: 10px 0;
+        order: 4;
     }
-
-    // Smooth scrolling for internal links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (event) {
-            const target = document.querySelector(this.getAttribute("href"));
-            if (target) {
-                event.preventDefault();
-                target.scrollIntoView({ behavior: "smooth" });
-            }
-        });
-    });
-});
-
+    .nav-menu.show {
+        display: flex;
+    }
+    .nav-menu li {
+        width: 100%;
+        margin: 5px 0;
+        padding-left: 15px;
+    }
+    .theme-toggle {
+        order: 3;
+        margin-left: 10px;
+    }
+}
