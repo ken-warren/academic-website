@@ -745,10 +745,6 @@ body {
     height: 200px; /* Adjusted height for better fit */
   }
 
-  .home-img {
-    height: 250px;
-  }
-
   /* People Section */
   #people ul li {
     flex: 1 1 calc(50% - 20px); /* 2 columns on medium screens */
@@ -859,7 +855,7 @@ body {
 
 @media (max-width: 480px) {
   .profile-pic {
-    width: 48px;
+    width: 96px;
     height: 48px;
   }
   /* People Section */
