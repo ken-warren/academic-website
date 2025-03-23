@@ -63,4 +63,35 @@ document.addEventListener("DOMContentLoaded", () => {
     searchBar.classList.remove("show");
     searchBar.querySelector("input").value = "";
   });
+
+  // Social Links Pop-up for Follow Button
+  const followBtn = document.querySelector(".follow-btn");
+  const socialLinks = document.querySelector(".sidebar .social-links");
+
+  // Function to hide the pop-up
+  const hideSocialLinks = () => {
+    socialLinks.classList.remove("show");
+    followBtn.setAttribute("aria-expanded", "false"); // Update aria-expanded
+  };
+
+  // Show social links when Follow button is clicked
+  followBtn.addEventListener("click", (e) => {
+    e.stopPropagation(); // Prevent the click from immediately closing the pop-up
+    const isExpanded = socialLinks.classList.toggle("show");
+    followBtn.setAttribute("aria-expanded", isExpanded); // Update aria-expanded
+  });
+
+  // Hide social links when clicking anywhere on the page
+  document.addEventListener("click", (e) => {
+    if (!socialLinks.contains(e.target) && e.target !== followBtn) {
+      hideSocialLinks();
+    }
+  });
+
+  // Hide social links when clicking a social link
+  socialLinks.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      hideSocialLinks();
+    });
+  });
 });
