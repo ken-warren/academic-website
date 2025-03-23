@@ -31,7 +31,8 @@
 
 /* General Body Styles */
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
   background-color: var(--background-color);
   color: var(--text-color);
   margin: 0;
@@ -542,7 +543,9 @@ body {
   margin: 0 auto; /* Center the logo */
   overflow: hidden;
   border-radius: 50%; /* Round shape */
-  background-color: var(--image-container-bg); /* Match other image containers */
+  background-color: var(
+    --image-container-bg
+  ); /* Match other image containers */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -629,17 +632,19 @@ body {
   .sidebar p {
     margin: 0; /* Remove default margins */
   }
- .sidebar {
-  position: relative;
+  .sidebar {
+    position: relative;
     top: 0;
     width: 100%;
-    max-width: none; 
+    max-width: none;
     display: flex;
     flex-direction: row; /* Keep as row */
     justify-content: space-between; /* Space elements evenly */
     align-items: flex-start;
     padding: 10px 0;
-    background-color: var(--nav-bg-color); /* Match nav background for consistency */
+    background-color: var(
+      --nav-bg-color
+    ); /* Match nav background for consistency */
     border-bottom: 1px solid var(--nav-border-color); /* Add a subtle border */
   }
 
@@ -654,7 +659,7 @@ body {
     padding: 0 5px;
   }
 
-  .sidebar .name-container{
+  .sidebar .name-container {
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -672,12 +677,12 @@ body {
     font-size: 12px;
   }
 
- /* Social Links Pop-up */
+  /* Social Links Pop-up */
   .social-links {
     display: none;
     position: absolute;
     top: 60%;
-    right: 0; 
+    right: 0;
     background-color: var(--nav-bg-color);
     border: 1px solid var(--nav-border-color);
     border-radius: 8px;
@@ -741,8 +746,8 @@ body {
   }
 
   .home-img {
-  height: 250px;
-}
+    height: 250px;
+  }
 
   /* People Section */
   #people ul li {
