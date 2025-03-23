@@ -666,14 +666,14 @@ body {
     display: flex;
     flex-direction: column;
     gap: 5px;
-    align-items: flex-end;
+    align-items: flex-start;
   }
 
   .sidebar .contact-container {
     display: flex;
     flex-direction: column;
     gap: 5px;
-    align-items: flex-start;
+    align-items: flex-end;
   }
 
   .sidebar .contact-container p {
