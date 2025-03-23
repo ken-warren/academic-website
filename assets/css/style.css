@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 
-/* Define CSS Variables for Theming */
+/* Define CSS Variables for Theming (Root and Dark Mode) */
 :root {
   /* Light Mode Variables */
   --background-color: #ffffff;
@@ -15,8 +15,8 @@
   --image-container-bg: #f5f5f5; /* Light gray background for image containers */
 }
 
-/* Dark Mode Variables */
 [data-theme="dark"] {
+  /* Dark Mode Variables */
   --background-color: #1e2525;
   --text-color: #d9d9d9;
   --link-color: #73a8b7;
@@ -29,10 +29,9 @@
   --image-container-bg: #2e3636; /* Darker gray for dark mode */
 }
 
-/* General Styles */
+/* General Body Styles */
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
-    Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   background-color: var(--background-color);
   color: var(--text-color);
   margin: 0;
@@ -41,229 +40,7 @@ body {
   min-height: 100vh;
 }
 
-/* Container for Sidebar and Main Content */
-.container {
-  width: 80%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-  display: flex;
-  flex-wrap: nowrap;
-  min-height: calc(100vh - 80px);
-}
-
-/* Sidebar Styles */
-.sidebar {
-  width: 25%;
-  padding-right: 20px;
-  position: sticky;
-  top: 20px;
-  align-self: flex-start;
-  height: fit-content;
-}
-
-.profile-pic {
-  width: 180px;
-  height: 180px;
-  margin: 0 auto 10px;
-  overflow: hidden;
-  border-radius: 50%;
-}
-
-.profile-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.sidebar h2 {
-  font-size: 1.5em;
-  margin-bottom: 10px;
-  color: var(--text-color);
-}
-
-.sidebar p {
-  font-size: 0.9em;
-  color: var(--sidebar-text-color);
-}
-
-.sidebar a {
-  color: var(--link-color);
-  text-decoration: none;
-}
-
-.sidebar a:hover {
-  text-decoration: underline;
-  color: var(--link-hover-color);
-}
-
-/* Social Links Styles */
-.social-links {
-  margin-top: 15px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.social-links a {
-  display: flex;
-  align-items: center;
-  color: var(--sidebar-text-color);
-  font-size: 1em;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  padding: 5px;
-  border-radius: 4px;
-}
-
-.social-links a i {
-  margin-right: 8px;
-  font-size: 1.2em;
-}
-
-.social-links a:hover {
-  color: var(--heading-color);
-  background-color: var(--social-hover-bg);
-}
-
-/* Main Content Styles */
-.main-content {
-  width: 75%;
-  overflow-y: auto;
-  padding-bottom: 20px;
-}
-
-.main-content section {
-  margin-bottom: 40px;
-}
-
-.main-content h1 {
-  color: var(--heading-color);
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-}
-
-.main-content h2 {
-  font-size: 1.4em;
-  margin-top: 20px;
-  margin-bottom: 10px;
-  color: var(--text-color);
-}
-
-.main-content p {
-  font-size: 1em;
-  margin-bottom: 15px;
-}
-
-.main-content a {
-  color: var(--link-color);
-  text-decoration: none;
-}
-
-.main-content a:hover {
-  text-decoration: underline;
-  color: var(--link-hover-color);
-}
-
-.main-content ul {
-  list-style: none;
-  padding: 0;
-}
-
-.main-content ul li {
-  margin-bottom: 20px;
-  display: flex;
-  align-items: flex-start;
-  gap: 20px; /* Space between image and text */
-}
-
-.main-content ul li p {
-  margin: 0;
-}
-
-.main-content ul li strong {
-  color: var(--text-color);
-}
-
-/* Image Container Styles (for Publications, Portfolio, etc.) */
-.image-container {
-  background-color: var(--image-container-bg);
-  padding: 10px;
-  border-radius: 8px;
-  flex-shrink: 0; /* Prevent shrinking */
-  width: 150px; /* Fixed width for consistency */
-  height: 150px; /* Fixed height for consistency */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.image-container img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: cover; /* Ensure images fit within container */
-  border-radius: 4px;
-}
-
-/* People Section Specific Styles */
-#people ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px; /* Space between items */
-}
-
-/* Default styling for all people items */
-#people ul li {
-  display: flex;
-  align-items: flex-start;
-  gap: 15px;
-  flex-direction: column; /* Stack image and text vertically */
-  text-align: center; /* Center text under images */
-  flex: 1 1 calc(33.33% - 20px); /* 3 columns, accounting for gap */
-  max-width: calc(33.33% - 20px); /* Max width for 3 columns */
-}
-
-/* Default people container */
-.people-container {
-  background-color: var(--image-container-bg);
-  padding: 10px;
-  border-radius: 50%; /* Round shape */
-  width: 100px; /* Smaller size for regular people */
-  height: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  margin: 0 auto; /* Center the image container */
-}
-
-.people-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Ensure images fit nicely */
-  border-radius: 50%; /* Match container shape */
-}
-
-/* Main Person Styling */
-#people ul li.main-person {
-  flex: 0 0 100%; /* Full width for main person */
-  max-width: 100%; /* Ensure it takes full width */
-  display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center;
-  flex-direction: column;
-  margin-bottom: 30px; /* Extra space below main person */
-}
-
-#people ul li.main-person .people-container {
-  width: 200px; /* Larger size for main person */
-  height: 200px;
-  padding: 15px; /* Slightly more padding */
-}
-
-/* Navigation Bar Styles */
+/* Navigation Bar Styles (.nav) */
 .nav {
   background-color: var(--nav-bg-color);
   border-bottom: 1px solid var(--nav-border-color);
@@ -277,7 +54,6 @@ body {
   z-index: 1000;
 }
 
-/* Logo Styles */
 .logo {
   flex: 1;
   left: 0;
@@ -295,47 +71,7 @@ body {
   color: var(--link-color);
 }
 
-/* Navigation Menu */
-.nav-menu {
-  display: flex;
-  justify-content: flex-end;
-  flex-grow: 1;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.nav-menu li {
-  margin: 0 15px;
-}
-
-.nav-menu li a {
-  text-decoration: none;
-  color: var(--link-color);
-  font-weight: 500;
-}
-
-.nav-menu li a:hover {
-  text-decoration: underline;
-  color: var(--link-hover-color);
-}
-
-/* Hamburger Button */
-.nav-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 1.5em;
-  color: var(--text-color);
-  cursor: pointer;
-  padding: 5px;
-}
-
-.nav-toggle:active {
-  transform: scale(0.95);
-}
-
-/* Search Styles */
+/* Search Styles (.search-container) */
 .search-container {
   flex: 0 0 auto;
   position: relative;
@@ -396,7 +132,47 @@ body {
   color: var(--link-hover-color);
 }
 
-/* Theme Toggle Styles */
+/* Hamburger Button (.nav-toggle) */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  color: var(--text-color);
+  cursor: pointer;
+  padding: 5px;
+}
+
+.nav-toggle:active {
+  transform: scale(0.95);
+}
+
+/* Navigation Menu (.nav-menu) */
+.nav-menu {
+  display: flex;
+  justify-content: flex-end;
+  flex-grow: 1;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-menu li {
+  margin: 0 15px;
+}
+
+.nav-menu li a {
+  text-decoration: none;
+  color: var(--link-color);
+  font-weight: 500;
+}
+
+.nav-menu li a:hover {
+  text-decoration: underline;
+  color: var(--link-hover-color);
+}
+
+/* Theme Toggle Styles (.theme-toggle) */
 .theme-toggle {
   margin-right: 0;
 }
@@ -435,7 +211,155 @@ body {
   display: none;
 }
 
-/* Home Section Styles */
+/* Main Container (.container) */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-wrap: nowrap;
+  min-height: calc(100vh - 80px);
+}
+
+/* Sidebar Styles (.sidebar) */
+.sidebar {
+  width: 25%;
+  padding-right: 20px;
+  position: sticky;
+  top: 20px;
+  align-self: flex-start;
+  height: fit-content;
+}
+
+.profile-pic {
+  width: 180px;
+  height: 180px;
+  margin: 0 auto 10px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.profile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sidebar h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: var(--text-color);
+}
+
+.sidebar p {
+  font-size: 0.9em;
+  color: var(--sidebar-text-color);
+}
+
+.sidebar a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+.sidebar a:hover {
+  text-decoration: underline;
+  color: var(--link-hover-color);
+}
+
+.follow-btn {
+  display: none;
+}
+
+/* Sidebar Social Links (.social-links) */
+.social-links {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  color: var(--sidebar-text-color);
+  font-size: 1em;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  padding: 5px;
+  border-radius: 4px;
+}
+
+.social-links a i {
+  margin-right: 8px;
+  font-size: 1.2em;
+}
+
+.social-links a:hover {
+  color: var(--heading-color);
+  background-color: var(--social-hover-bg);
+}
+
+/* Main Content Styles (.main-content) */
+.main-content {
+  width: 75%;
+  overflow-y: auto;
+  padding-bottom: 20px;
+}
+
+.main-content section {
+  margin-bottom: 40px;
+}
+
+.main-content h1 {
+  color: var(--heading-color);
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.main-content h2 {
+  font-size: 1.4em;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: var(--text-color);
+}
+
+.main-content p {
+  font-size: 1em;
+  margin-bottom: 15px;
+}
+
+.main-content a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+.main-content a:hover {
+  text-decoration: underline;
+  color: var(--link-hover-color);
+}
+
+.main-content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.main-content ul li {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px; /* Space between image and text */
+}
+
+.main-content ul li p {
+  margin: 0;
+}
+
+.main-content ul li strong {
+  color: var(--text-color);
+}
+
+/* Home Section Styles (#home) */
 #home .hero {
   text-align: center;
   padding: 40px 0;
@@ -499,29 +423,82 @@ body {
   color: var(--text-color);
 }
 
-/* Footer Styles */
-/* Footer Logo Styles */
-.footer-logo {
-  width: 100px; /* Size of the round container */
-  height: 100px;
-  margin: 0 auto; /* Center the logo */
-  overflow: hidden;
-  border-radius: 50%; /* Round shape */
-  background-color: var(
-    --image-container-bg
-  ); /* Match other image containers */
+/* Publications and Portfolio Image Container Styles (.image-container) */
+.image-container {
+  background-color: var(--image-container-bg);
+  padding: 10px;
+  border-radius: 8px;
+  flex-shrink: 0; /* Prevent shrinking */
+  width: 150px; /* Fixed width for consistency */
+  height: 150px; /* Fixed height for consistency */
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.footer-logo img {
+.image-container img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover; /* Ensure images fit within container */
+  border-radius: 4px;
+}
+
+/* People Section Styles (#people) */
+#people ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Space between items */
+}
+
+#people ul li {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  flex-direction: column; /* Stack image and text vertically */
+  text-align: center; /* Center text under images */
+  flex: 1 1 calc(33.33% - 20px); /* 3 columns, accounting for gap */
+  max-width: calc(33.33% - 20px); /* Max width for 3 columns */
+}
+
+.people-container {
+  background-color: var(--image-container-bg);
+  padding: 10px;
+  border-radius: 50%; /* Round shape */
+  width: 100px; /* Smaller size for regular people */
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin: 0 auto; /* Center the image container */
+}
+
+.people-container img {
   width: 100%;
   height: 100%;
-  object-fit: fill; /* Ensure logo fits within the round container */
+  object-fit: cover; /* Ensure images fit nicely */
   border-radius: 50%; /* Match container shape */
 }
 
+#people ul li.main-person {
+  flex: 0 0 100%; /* Full width for main person */
+  max-width: 100%; /* Ensure it takes full width */
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 30px; /* Extra space below main person */
+}
+
+#people ul li.main-person .people-container {
+  width: 200px; /* Larger size for main person */
+  height: 200px;
+  padding: 15px; /* Slightly more padding */
+}
+
+/* Footer Styles (.footer) */
 .footer {
   background-color: var(--nav-bg-color);
   border-top: 1px solid var(--nav-border-color);
@@ -567,7 +544,27 @@ body {
   text-decoration: none;
 }
 
-/* Footer Social Links */
+/* Footer Logo Styles (.footer-logo) */
+.footer-logo {
+  width: 100px; /* Size of the round container */
+  height: 100px;
+  margin: 0 auto; /* Center the logo */
+  overflow: hidden;
+  border-radius: 50%; /* Round shape */
+  background-color: var(--image-container-bg); /* Match other image containers */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill; /* Ensure logo fits within the round container */
+  border-radius: 50%; /* Match container shape */
+}
+
+/* Footer Social Links (.footer-section .social-links) */
 .footer-section .social-links {
   margin-top: 0;
   display: flex;
@@ -598,7 +595,7 @@ body {
   color: var(--heading-color);
 }
 
-/* Footer Bottom (Copyright and Powered By) */
+/* Footer Bottom Styles (.footer-bottom) */
 .footer-bottom {
   width: 80%;
   max-width: 1200px;
@@ -629,58 +626,139 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  /* Container */
   .container {
     flex-direction: column;
+    width: 80%;
   }
-  .sidebar,
+
+  /* Sidebar */
+  .sidebar .profile-pic,
+  .sidebar h2,
+  .sidebar p {
+    margin: 0; /* Remove default margins */
+  }
+ .sidebar {
+    top: 0;
+    width: 100%;
+    max-width: none; 
+    display: flex;
+    flex-direction: row; /* Keep as row */
+    justify-content: space-between; /* Space elements evenly */
+    align-items: flex-start;
+    padding: 10px 0;
+    background-color: var(--nav-bg-color); /* Match nav background for consistency */
+    border-bottom: 1px solid var(--nav-border-color); /* Add a subtle border */
+  }
+
+  .sidebar h2 {
+    font-size: 16px;
+    padding: 0 10px;
+  }
+
+  .sidebar p,
+  .social-links {
+    font-size: 12px;
+    padding: 0 5px;
+  }
+
+  .sidebar .name-container{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: flex-end;
+  }
+
+  .sidebar .contact-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: flex-start;
+  }
+
+  .sidebar .contact-container p {
+    font-size: 12px;
+  }
+
+  .social-links {
+    display: none;
+  }
+
+  .follow-btn {
+    display: inline-block;
+    background: none;
+    border: 1px solid var(--link-color); /* Add a border for visibility */
+    border-radius: 15px;
+    color: var(--link-color);
+    cursor: pointer;
+    padding: 5px 10px; /* Better padding for touch */
+    font-size: 12px;
+    transition: all 0.3s ease;
+  }
+
+  .follow-btn:hover {
+    color: var(--link-hover-color);
+    border-color: var(--link-hover-color);
+  }
+
+  .profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+
+  /* Main Content */
   .main-content {
     width: 100%;
-  }
-  .sidebar {
-    position: static;
-    padding-right: 0;
-    margin-bottom: 20px;
-  }
-  .main-content {
     overflow-y: visible;
   }
+
   .main-content ul li {
     flex-direction: column; /* Stack image and text on small screens */
     gap: 10px;
   }
+
   .image-container {
     width: 100%; /* Full width on small screens */
     height: 200px; /* Adjusted height for better fit */
   }
-  /* People Section Responsive */
+
+  /* People Section */
   #people ul li {
     flex: 1 1 calc(50% - 20px); /* 2 columns on medium screens */
     max-width: calc(50% - 20px);
   }
+
   #people ul li.main-person {
     flex: 0 0 100%; /* Still full width */
     max-width: 100%;
   }
+
   #people ul li.main-person .people-container {
     width: 150px; /* Slightly smaller on mobile */
     height: 150px;
   }
+
   .people-container {
     width: 80px; /* Smaller for regular people on mobile */
     height: 80px;
   }
 
+  /* Navigation */
   .nav {
     flex-wrap: wrap;
     padding: 10px;
   }
+
   .logo {
     flex: 1;
   }
+
   .nav-toggle {
     display: block;
     order: 2;
   }
+
   .nav-menu {
     display: none;
     width: 100%;
@@ -691,50 +769,62 @@ body {
     padding: 10px 0;
     order: 4;
   }
+
   .nav-menu.show {
     display: flex;
   }
+
   .nav-menu li {
     width: 100%;
     margin: 5px 0;
     padding-left: 15px;
   }
+
   .theme-toggle {
     order: 3;
     margin-left: 10px;
   }
+
   .search-container {
     order: 1;
     margin-left: 10px;
     flex: 0 0 auto;
   }
+
   .search-bar {
     width: 150px;
     left: 50%;
     transform: translateX(-50%);
   }
+
+  /* Footer */
   .footer-container {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: flex-start;
   }
+
   .footer-section {
     flex: 1 1 calc(50% - 20px); /* 2 sections per row */
     max-width: calc(50% - 20px); /* 50% width minus gap */
     margin-bottom: 20px; /* Space between rows */
   }
+
   .footer-section .social-links {
     height: 100px;
   }
+
   .footer-section .social-links a {
     flex: 0 0 25px; /* Smaller icons on mobile */
     height: 25px;
     gap: 1-px;
   }
+
   .footer-section .social-links a i {
     font-size: 1em;
   }
+
   .footer-logo {
     width: 80px; /* Smaller logo on mobile */
     height: 80px;
@@ -742,14 +832,18 @@ body {
 }
 
 @media (max-width: 480px) {
+  /* People Section */
   #people ul li {
     flex: 1 1 calc(50% - 20px); /* Still 2 columns on very small screens */
     max-width: calc(50% - 20px);
   }
+
+  /* Footer */
   .footer-section {
     flex: 1 1 calc(50% - 20px); /* Still 2 sections per row */
     max-width: calc(50% - 20px);
   }
+
   .footer-section .social-links a {
     flex: 0 0 calc(33.33% - 10px); /* Maintain 3 per row */
     max-width: calc(33.33% - 10px);
